@@ -8,7 +8,10 @@ export default {
   components: {},
   data() {
     return {
-      monkeys: ["../imgs.Monkey1.jpg", ""],
+      props: [
+        name: String,
+
+      ],
     };
   },
 };
