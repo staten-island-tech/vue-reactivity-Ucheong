@@ -146,6 +146,18 @@ return {
       cost: "40k",
       stock: 300,
     },
+    {
+      name: "Monkey25",
+      description: "I will beat anyone up for u",
+      cost: "200k",
+      stock: 1000,
+    },
+    {
+      name: "Monkey26",
+      description: "I'm a thief",
+      cost: "1k",
+      stock: 1,
+    },
   ],
 };
 </script>
