@@ -14,7 +14,6 @@
 import Cart from "../components/cart.vue";
 import { store } from "../components/store";
 export default {
-  name: "CartView",
   components: {
     Cart,
   },
