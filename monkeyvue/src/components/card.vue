@@ -27,8 +27,6 @@ export default {
         img: this.img,
         cost: this.cost,
       });
-
-      console.log(store.cart);
     },
   },
 };
