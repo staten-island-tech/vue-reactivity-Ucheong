@@ -10,12 +10,14 @@
       :cost="monkey.cost"
       :stock="monkey.stock"
       :img="monkey.img"
-    />
+    >
+    </Card>
   </div>
 </template>
 
 <script>
 import Card from "../components/card.vue";
+import { store } from "../components/store";
 
 export default {
   components: {
@@ -23,6 +25,7 @@ export default {
   },
   data() {
     return {
+      store,
       monkeys: [
         {
           name: "Monkey1",

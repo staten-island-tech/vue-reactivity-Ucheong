@@ -2,33 +2,24 @@
   <div class="card">
     <h2>{{ name }}</h2>
     <img :src="img" :alt="Monkey" />
-    <p>Description: {{ description }}</p>
     <p>Price: {{ cost }}</p>
-    <p>Stock: {{ stock }} left</p>
-    <button @click="add">Add to Cart</button>
+    <button @click="remove">Remove</button>
   </div>
 </template>
 
 <script>
 import { store } from "../components/store";
+
 export default {
-  name: "Card",
+  name: "Cart",
   props: {
     name: String,
-    description: String,
     img: String,
     cost: Number,
-    stock: Number,
   },
   methods: {
-    add() {
-      store.cart.push({
-        name: this.name,
-        img: this.img,
-        cost: this.cost,
-      });
-
-      console.log(store.cart);
+    remove() {
+      store.cart.splice(this.index, 1);
     },
   },
 };
