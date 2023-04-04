@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { store } from "../components/store";
+import { reactive } from 'vue';
 export default {
   name: "card",
   props: {
@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     add() {
-      store.cart.push({
+      cart.push({
         name: this.name,
         img: this.img,
         cost: this.cost,
@@ -28,6 +28,7 @@ export default {
     },
   },
 };
+export const cart = reactive([])
 </script>
 
 <style>

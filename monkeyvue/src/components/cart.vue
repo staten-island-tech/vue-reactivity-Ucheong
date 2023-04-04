@@ -8,7 +8,8 @@
 </template>
 
 <script>
-import { store } from "../components/store";
+//import { store } from "../components/store";
+import { cart } from "./card.vue";
 
 export default {
   name: "cart",
@@ -19,7 +20,7 @@ export default {
   },
   methods: {
     remove(name) {
-      let monkey = store.cart.find((monkey) => monkey.name === name);
+      let monkey = cart.find((monkey) => monkey.name === name);
       store.cart.splice(monkey, 1);
     },
   },
