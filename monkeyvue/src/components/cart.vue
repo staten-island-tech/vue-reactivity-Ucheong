@@ -1,9 +1,9 @@
 <template>
-  <div class="card">
+  <div class="cart">
     <h2>{{ name }}</h2>
-    <img :src="img" :alt="Monkey" />
-    <p>Price: {{ cost }}</p>
-    <button @click="remove">Remove</button>
+    <img :src="img" :alt="name" />
+    <p>Price: ${{ cost }}</p>
+    <button @click="remove(name)">Remove</button>
   </div>
 </template>
 
@@ -11,32 +11,33 @@
 import { store } from "../components/store";
 
 export default {
-  name: "Cart",
+  name: "cart",
   props: {
     name: String,
     img: String,
     cost: Number,
   },
   methods: {
-    remove() {
-      store.cart.splice(this.index, 1);
+    remove(name) {
+      let monkey = store.cart.find((monkey) => monkey.name === name);
+      store.cart.splice(monkey, 1);
     },
   },
 };
 </script>
 
 <style>
-.card {
-  height: fit-content;
+.cart {
   display: flex;
   flex-direction: column;
-  padding: 1rem 1rem 2rem;
+  justify-content: space-evenly;
+  align-items: center;
   background: #f8f3e8;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.2);
   border-radius: 3px;
   margin-bottom: 30px;
+  width: 20vw;
 }
-.card > img {
+.cart > img {
   width: 100%;
   height: auto;
 }

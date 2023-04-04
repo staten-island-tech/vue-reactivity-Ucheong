@@ -1,21 +1,23 @@
 <template>
-  <Cart
-    v-for="monkey in store.cart"
-    :key="monkey"
-    :name="monkey.name"
-    :cost="monkey.cost"
-    :img="monkey.img"
-  ></Cart>
+  <div class="shoppingCart">
+    <cart
+      v-for="monkey in store.cart"
+      :key="monkey"
+      :name="monkey.name"
+      :cost="monkey.cost"
+      :img="monkey.img"
+    ></cart>
+  </div>
 
-  <div class="total">Total Cost: {{ total() }}</div>
+  <div class="total">Total Cost: ${{ total() }}</div>
 </template>
 
 <script>
-import Cart from "../components/cart.vue";
+import cart from "../components/cart.vue";
 import { store } from "../components/store";
 export default {
   components: {
-    Cart,
+    cart,
   },
   data() {
     return {
@@ -26,7 +28,7 @@ export default {
     total() {
       let total = 0;
       for (let i = 0; i < store.cart.length; i++) {
-        total += store.cart[i].cost * store.cart[i].count;
+        total += store.cart[i].cost;
       }
       return total;
     },
@@ -34,4 +36,15 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style>
+.shoppingCart {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.total {
+  text-align: center;
+}
+</style>
